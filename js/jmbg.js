@@ -12,6 +12,8 @@
         kontrolna,
         ispravnaKontrolna;
 
+    let person = {};
+
     function checkJMBG() {
         if (dan < 1 || dan > 31) {
             msg.innerHTML = "Neispravan dan rodjenja";
@@ -50,6 +52,7 @@
                     3 * (Number(jmbg[4]) + Number(jmbg[10])) +
                     2 * (Number(jmbg[5]) + Number(jmbg[11]))) %
                     11;
+            if (ispravnaKontrolna > 9) ispravnaKontrolna = 0;
             checkJMBG();
         } else {
             msg.innerHTML = "JMBG mora imati 13 cifara!";
