@@ -1,7 +1,8 @@
 (function() {
     const jmbgHTML = document.getElementById("jmbg-input");
     const check = document.getElementById("check");
-    const msgHTML = document.getElementById("msg");
+    const msg = document.getElementById("msg");
+    console.log(msg);
     let jmbg,
         dan,
         mesec,
@@ -30,7 +31,9 @@
     }
 
     function parseJMBG() {
-        const jmbg = jmbgHTML.value.split("");
+        console.log("aaa");
+        let jmbg = jmbgHTML.value.split("");
+        console.log(jmbg);
         if (jmbg.length === 13) {
             dan = Number(jmbg[0] + jmbg[1]);
             mesec = Number(jmbg[2] + jmbg[3]);
@@ -47,10 +50,10 @@
                     3 * (Number(jmbg[4]) + Number(jmbg[10])) +
                     2 * (Number(jmbg[5]) + Number(jmbg[11]))) %
                     11;
+            checkJMBG();
         } else {
             msg.innerHTML = "JMBG mora imati 13 cifara!";
         }
-        checkJMBG();
     }
 
     check.addEventListener("click", parseJMBG);
