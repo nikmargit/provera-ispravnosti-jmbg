@@ -278,9 +278,7 @@
         }
         var newPerson = new Person(dan, mesec, godina, regija, jedinstveniBroj);
         console.log(newPerson);
-        osoba.innerHTML = `Datum rodjenja ${dan}.${mesec}.${
-            godina
-        }<br> Mesto rodjenja: ${regija} <br> Pol: ${jedinstveniBroj}`;
+        osoba.innerHTML = `Datum rodjenja ${dan}.${mesec}.${godina}<br> Mesto rodjenja: ${regija} <br> Pol: ${jedinstveniBroj}`;
     }
 
     function checkJMBG() {
@@ -330,4 +328,8 @@
     }
 
     check.addEventListener("click", parseJMBG);
+    document.querySelector("form").addEventListener("keypress", function(e) {
+        console.log(e.keyCode);
+        if (e.keyCode === 13) parseJMBG();
+    });
 })();
