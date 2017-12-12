@@ -3,7 +3,6 @@
     const check = document.getElementById("check");
     const msg = document.getElementById("msg");
     const osoba = document.getElementById("osoba");
-    console.log(msg);
     let jmbg,
         dan,
         mesec,
@@ -13,13 +12,6 @@
         kontrolna,
         ispravnaKontrolna;
 
-    function Person(date, month, year, region, sex) {
-        this.date = date;
-        this.month = month;
-        this.year = year;
-        this.region = region;
-        this.sex = sex;
-    }
     function setPerson() {
         godina = "1" + godina;
         switch (regija) {
@@ -276,8 +268,7 @@
         } else {
             jedinstveniBroj = "Ženski";
         }
-        var newPerson = new Person(dan, mesec, godina, regija, jedinstveniBroj);
-        console.log(newPerson);
+
         osoba.innerHTML = `Datum rodjenja ${dan}.${mesec}.${godina}<br> Mesto rodjenja: ${regija} <br> Pol: ${jedinstveniBroj}`;
     }
 
@@ -301,9 +292,7 @@
     }
 
     function parseJMBG() {
-        console.log("aaa");
         let jmbg = jmbgHTML.value.split("");
-        console.log(jmbg);
         if (jmbg.length === 13) {
             dan = Number(jmbg[0] + jmbg[1]);
             mesec = Number(jmbg[2] + jmbg[3]);
@@ -329,7 +318,6 @@
 
     check.addEventListener("click", parseJMBG);
     document.querySelector("form").addEventListener("keypress", function(e) {
-        console.log(e.keyCode);
         if (e.keyCode === 13) parseJMBG();
     });
 })();
